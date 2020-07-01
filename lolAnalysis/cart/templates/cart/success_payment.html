@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%block content%}
+<title>Comanda plasată!</title>
+<div class="row">
+<div class="col-lg-2">
+
+</div>
+<div class="col-lg-8 p-5">
+    <table class="table table-striped table-responsive-md">
+
+        <thead>
+            <H2 class="font-weight-bold">Comanda a fost plasată cu succes<i class="fa fa-check"></i></H2>
+
+        </thead>
+
+        <tbody>
+          <td>
+<h3 class="font-weight-bold">
+    Date facturare
+</h3>
+    <p>Nume:{{order.nume}},
+        Prenume:{{order.prenume}},
+        Județ:{{order.judet}},
+        Localitate:{{order.localitate}},
+        Adresa:{{order.adresa}},
+        Cod Postal:{{order.cod_postal}}
+    </p>
+    <p>Plasat la data de: {{order.ordered_date}}</p>
+   
+          </td>
+       
+          <td>
+<h3 class="font-weight-bold">
+    Detalii comandă
+</h3>
+
+          {%for item in order.items.all%}
+            <h4>{{item.quantity}} x {{item.product.title}} ({{item.size}})</h3>
+          {%endfor%}
+            <h4 class="font-weight-bold">Total: {{order.get_total}} Lei</h4>
+          </td>
+            <td>
+            <h3>
+                Multumim pentru comandă!
+            </h3>
+            
+            <a href="{%url 'home'%}"><button class="btn btn-primary">Înapoi la pagina principală</button></a>
+            </td>  
+                
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-2">
+
+</div>
+</div>
+{%endblock%}
+

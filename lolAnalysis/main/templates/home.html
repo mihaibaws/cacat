@@ -1,0 +1,412 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<script src="jquery-3.5.1.min.js"></script>
+<title>Your Real Rank</title>
+<script>
+	$(function () {
+			$('#kappaBtn').click(function () {
+				$('#kappa3').removeClass('invisible').addClass('animated rotateIn');
+				setTimeout(function () {
+					window.location.replace("{%url 'lol-wiki'%}");
+				}, 3000);
+				
+			});
+		});
+</script>
+<script>
+	$(function () {
+		$("#cardgifimg1").hover(
+			function () {
+				console.log('shit');
+				$(this).attr("src", "{%static 'gif1.gif'%}");
+			}
+		);
+	});
+	$(function () {
+			$("#cardgifimg2").hover(
+				function () {
+					$(this).attr("src", "{%static 'gif2.gif'%}");
+				}
+			);
+		});
+	$(function () {
+			$("#cardgifimg3").hover(
+				function () {
+					$(this).attr("src", "{%static 'gif3.gif'%}");
+				}
+			);
+		});
+	$(function () {
+			$("#cardgifimg4").hover(
+				function () {
+					$(this).attr("src", "{%static 'gif4.gif'%}");
+				}
+			);
+		});
+	$(function () {
+			$("#cardgifimg5").hover(
+				function () {
+					$(this).attr("src", "{%static 'gif5.gif'%}");
+				}
+			);
+		});
+	
+</script>
+<style>
+	#lmao{
+		font-size: 35vw;
+		position: absolute;
+		margin-top: -20%;
+		left:0;
+		right:0;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	#summoner_name {
+		padding: 30px;
+		border: 0;
+		width: 60%;
+		color: white;
+	}
+
+	#region {
+		color: white;
+		border: 0;
+		width: 20%;
+	}
+
+	::placeholder {
+		color: white;
+		opacity: 1;
+	}
+
+	#search-container {
+	background-image: url({%static 'search-background.jpg'%});
+	background-size: cover;
+	-webkit-box-shadow: inset 0px -33px 79px -9px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px -33px 79px -9px rgba(255,255,255,1);
+	box-shadow: inset 0px -33px 79px -9px rgba(255,255,255,1);
+
+	}
+
+	#search-btn {
+		border: 0;
+		width: 20%;
+	}
+
+	.fa-search {
+		color: white;
+	}
+
+	select option {
+		color: purple;
+		padding: 20px 0px;
+	}
+</style>
+<div class="container-fluid" id="search-container">
+	<div class='row'>
+		<div class="col-12">
+			<div class="text-center p-5">
+				<h1 class="text-weight-bold text-white">I bet you Iron but let me check for you...</h1>
+
+				<form method='POST' class='d-flex justify-content-center p-5'>
+					{%csrf_token%}
+					<div class="btn-toolbar border border-secondary w-75 rounded d-flex" id="search-bar">
+						<input class="bg-transparent" type="text" placeholder="Summoner's name..." id="summoner_name"
+							name="summoner_name" required>
+						<select class="bg-transparent selectpicker" name="region" id="region" required>
+							<option value="">Region...</option>
+							<option value="br1">Brazil</option>
+							<option value="eun1">Europe Nordic & East</option>
+							<option value="euw1">Europe West</option>
+							<option value="la1">Latin America North</option>
+							<option value="la2">Latin America South</option>
+							<option value="na1">North America</option>
+							<option value="oc1">Oceania</option>
+							<option value="ru1">Russia</option>
+							<option value="tr1">Turkey</option>
+							<option value="jp1">Japan</option>
+							<option value="kr">Korea</option>
+						</select>
+						<button id="search-btn" type="submit" class="bg-secondary"><i
+								class="fa fa-search"></i></button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text position-relative invisible" id="kappa3">
+		<h1 class="text-center text-white" id="lmao">LMAO</h1>
+	</section>
+<div class="container-fluid my-5 py-5 z-depth-1">
+
+
+	<!--Section: Content-->
+	<section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+		<!--Grid row-->
+		<div class="row">
+
+			<!--Grid column-->
+			<div class="col-12" id="kappaText1">
+				<div class="text-center">
+				<h3 class="font-weight-bold text-white">Ești noob la lol ?</h3>
+
+				<p class="text-white">Nu câștigi meciuri nici dacă sunt 4 afk în echipa inamica ?
+					Nu nimerești nici măcar abilitățile point-and-click pe inamici pentru ca joci de parcă
+					ai două mâni stângi?
+				</p>
+				<p class="text-weight-bold text-white">Apasă butonul pentru a nu mai fii noob.</p>
+
+
+				<a class="btn btn-purple btn-md ml-0" role="button" id="kappaBtn">Vreau măcar gold!
+					<i class="fas fa-trophy"></i></a>
+				</div>
+			</div>
+
+
+			<!--Grid column-->
+
+			<!--Grid column-->
+		
+
+
+			<!--Grid column-->
+
+		</div>
+		<!--Grid row-->
+
+
+	</section>
+
+	<!--Section: Content-->
+
+	<!--Section: Content-->
+	
+</div>
+</div>
+	
+
+	<hr>
+	<!-- INTALNESTE ECHIPA CONTAINER-->
+	<div class="container">
+		<h1 class="text-center text-weight-bold">Întâlnește echipa!</h1>
+		<img class="img-fluid p-3" src="{%static 'primary-bg.png'%}">
+		
+		
+	</div>
+<div class="row p-5 d-flex justify-content-center">
+	<div class="col-lg-2 col-md-4 p-3">
+		<!-- Card Regular -->
+		<div class="card card-cascade">
+
+			<!-- Card image -->
+			<div class="view view-cascade overlay">
+				<img id="cardgifimg1" class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+				<a>
+					<div class="mask rgba-white-slight"></div>
+				</a>
+			</div>
+
+			<!-- Card content -->
+			<div class="card-body card-body-cascade text-center">
+
+				<!-- Title -->
+				<h4 class="card-title"><strong>I GEO I </strong></h4>
+				<!-- Subtitle -->
+				<h6 class="font-weight-bold indigo-text py-2">Darius OTP</h6>
+				<!-- Text -->
+				<p class="card-text">D4/D3 Hardstuck. Nu joacă nimic. 
+					<p>
+						1.8kk Darius mastery points.
+					</p>
+				</p>
+				
+
+				<!-- Facebook -->
+				<a type="button" href="https://www.facebook.com/george.neacsu.524" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+				<!-- Twitter -->
+				<a type="button" href="https://www.instagram.com/george.neacsu.524/" class="btn-floating btn-small btn-tw"><i class="fab fa-instagram"></i></a>
+				<!-- Google + -->
+			</div>
+
+			
+		</div>
+		<!-- Card Regular -->
+	</div>
+	<div class="col-lg-2 col-md-4 p-3">
+		<!-- Card Regular -->
+		<div class="card card-cascade">
+
+			<!-- Card image -->
+			<div class="view view-cascade overlay">
+				<img id="cardgifimg2" class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+				<a>
+					<div class="mask rgba-white-slight"></div>
+				</a>
+			</div>
+
+			<!-- Card content -->
+			<div class="card-body card-body-cascade text-center">
+
+				<!-- Title -->
+				<h4 class="card-title"><strong>SpArTaNuS</strong></h4>
+				<!-- Subtitle -->
+				<h6 class="font-weight-bold indigo-text py-2">The untiltable</h6>
+				<!-- Text -->
+				<p class="card-text">D2. Casual rager. Dacă pierde 2 meciuri la rând plânge.
+				</p>
+				<p>
+					Jungle main.
+				</p>
+
+				<!-- Facebook -->
+				<a type="button" href="https://www.facebook.com/eduard.pestritu" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+				<!-- Twitter -->
+				<a type="button" href="https://www.instagram.com/jandarm_edy/" class="btn-floating btn-small btn-tw"><i class="fab fa-instagram"></i></a>
+				<!-- Google + -->
+			
+			</div>
+
+		
+
+		</div>
+		<!-- Card Regular -->
+	</div>
+	<div class="col-lg-2 col-md-4 p-3">
+		<!-- Card Regular -->
+		<div class="card card-cascade">
+
+			<!-- Card image -->
+			<div class="view view-cascade overlay">
+				<img id="cardgifimg3" class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+				<a>
+					<div class="mask rgba-white-slight"></div>
+				</a>
+			</div>
+
+			<!-- Card content -->
+			<div class="card-body card-body-cascade text-center">
+
+				<!-- Title -->
+				<h4 class="card-title"><strong>eMehigh</strong></h4>
+				<!-- Subtitle -->
+				<h6 class="font-weight-bold indigo-text py-2">The ex Grandmaster.</h6>
+				<!-- Text -->
+				<p class="card-text">D1. 0/10 Casual. Daily turboint. 2018 Banned for troll.
+					<p>
+						Late carry.
+					</p>
+				</p>
+
+				<!-- Facebook -->
+				<a type="button" href="https://www.facebook.com/mihai.eugen.79" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+				<!-- Twitter -->
+				<a type="button" href="https://www.instagram.com/mihaieugen29/" class="btn-floating btn-small btn-tw"><i class="fab fa-instagram"></i></a>
+				<!-- Google + -->
+				<a type="button" href="https://www.youtube.com/channel/UC4PvFAneTnbSvcwiTxr9seg?view_as=subscriber" class="btn-floating btn-small btn-dribbble"><i class="fab fa-youtube"></i></a>
+
+			</div>
+
+		
+
+		</div>
+		<!-- Card Regular -->
+	</div>
+	<div class="col-lg-2 col-md-6 p-3">
+		<!-- Card Regular -->
+		<div class="card card-cascade">
+
+			<!-- Card image -->
+			<div class="view view-cascade overlay">
+				<img id="cardgifimg4" class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+				<a>
+					<div class="mask rgba-white-slight"></div>
+				</a>
+			</div>
+
+			<!-- Card content -->
+			<div class="card-body card-body-cascade text-center">
+
+				<!-- Title -->
+				<h4 class="card-title"><strong>Tese</strong></h4>
+				<!-- Subtitle -->
+				<h6 class="font-weight-bold indigo-text py-2">Tyler1 wannabe.</h6>
+				<!-- Text -->
+				<p class="card-text">D4 hardstuck. Joaca pe cont de gold (acolo mai câștiga și el).
+					<p>
+						Nu mă, că joc de plictiseala.
+					</p>
+				</p>
+
+				<!-- Facebook -->
+				<a type="button" href="https://www.facebook.com/ovidiu.costache.1" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+				<!-- Twitter -->
+				<a type="button" href="https://www.instagram.com/ovidiu_costache_/" class="btn-floating btn-small btn-tw"><i class="fab fa-instagram"></i></a>
+				<!-- Google + -->
+			
+
+			</div>
+
+		</div>
+		<!-- Card Regular -->
+	</div>
+	<div class="col-lg-2 col-md-6 p-3">
+		<!-- Card Regular -->
+		<div class="card card-cascade">
+
+			<!-- Card image -->
+			<div class="view view-cascade overlay">
+				<img id="cardgifimg5" class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+				<a>
+					<div class="mask rgba-white-slight"></div>
+				</a>
+			</div>
+
+			<!-- Card content -->
+			<div class="card-body card-body-cascade text-center">
+
+				<!-- Title -->
+				<h4 class="card-title"><strong>LiMiTiX007</strong></h4>
+				<!-- Subtitle -->
+				<h6 class="font-weight-bold indigo-text py-2">Suport că n-are cine :\.</h6>
+				<!-- Text -->
+				<p class="card-text">Gold. Nu avansez că nu am timp să joc (kappa).
+					<p>
+						Vreau și eu platină macar..
+					</p>
+				</p>
+
+				<!-- Facebook -->
+				<a type="button" href="https://www.facebook.com/alin.david.750" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+				<!-- Twitter -->
+				<a type="button" href="https://www.instagram.com/davidalinn/" class="btn-floating btn-small btn-tw"><i class="fab fa-instagram"></i></a>
+				<!-- Google + -->
+				<a type="button" href="https://www.youtube.com/channel/UCsgO82gSIhALz46xE4cnnww" class="btn-floating btn-small btn-dribbble"><i class="fab fa-youtube"></i></a>
+
+			</div>
+
+		
+
+		</div>
+		<!-- Card Regular -->
+	</div>
+</div>
+<hr>
+
+<div class="container">
+	<h1 class="text-center text-weight-bold">De ce Your Real Rank ?</h1>
+	<p>
+		Suntem în bussines a.k.a. bagăm tare pe lol din 2012 cu o experiență în total de peste 20000 de ore.
+		Prin intermediul website-ului vrem să susținem comunitatea cu sfaturi și să dezvăluim din secretele cu ajutorul
+		cărora am ajuns Grandmaster si Challenger. Experiența vorbește de la sine. La fel și videoclipul.
+	</p>
+
+	<div class="embed-responsive embed-responsive-21by9">
+		<iframe class="embed-responsive-item" src="{%static 'video.mp4'%}"></iframe>
+	</div>
+</div>
+<hr>
+{%endblock%}

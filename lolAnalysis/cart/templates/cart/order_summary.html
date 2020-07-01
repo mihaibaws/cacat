@@ -1,0 +1,156 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<title>Coș de cumpărături</title>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function () {
+			$('.addButton').click(function () {
+				$('#addForm').submit();
+			});
+		});
+
+	$(document).ready(function () {
+			$('.deleteButton').click(function () {
+				$('#deleteForm').submit();
+			});
+		});
+</script>
+
+<div class="container z-depth-1 my-5">
+
+	<!-- Section: Block Content -->
+	<section>
+
+		<!-- Shopping Cart table -->
+		<div class="table-responsive">
+			<table class="table product-table table-cart-v-1">
+				<!-- Table head -->
+				<thead>
+					<tr>
+						<th></th>
+						<th class="font-weight-bold">
+							<strong>Product</strong>
+						</th>
+						<th class="font-weight-bold">
+							<strong>Size</strong>
+						</th>
+						<th></th>
+						<th class="font-weight-bold">
+							<strong>Price</strong>
+						</th>
+						<th class="font-weight-bold">
+							<strong>QTY</strong>
+						</th>
+						<th class="font-weight-bold">
+							<strong>Amount</strong>
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<!-- Table head -->
+				<!-- Table body -->
+				<tbody>
+					{% for order_item in order.get_cart_items %}
+					<tr>
+						
+						<th scope="row">
+							<a href="{%url 'product-detail' order_item.product.slug%}">
+								<img src="{{order_item.product.thumbnail.url}}" alt=""
+									class="img-fluid z-depth-0">
+							</a>
+						</th>
+						
+						<td>
+							<h5 class="mt-3">
+								<a href="{%url 'product-detail' order_item.product.slug%}">
+								<strong>{{order_item.product.title}}</strong>
+								</a>
+							</h5>
+						</td>
+						
+						<td><h5 class="mt-3">{{order_item.size}}</h5></td>
+						<td></td>
+						<td>${{order_item.product.price}}</td>
+						<td class="text-center text-md-left">
+						
+							<div class="btn-group radio-group ml-2">
+							<form id="deleteForm" method="post" action="{% url 'remove-single-item-from-cart' order_item.product.slug %}">
+								{%csrf_token%}
+								<input type="hidden" name="size" value="{{order_item.size}}">
+								<a class="deleteButton" href="{% url 'remove-single-item-from-cart' order_item.product.slug %}">
+								<i class="fas fa-minus"></i></a>
+							</form>
+								{{ order_item.quantity }}
+							<form id="addForm" method="post" action="{% url 'add-to-cart' order_item.product.slug %}">
+								{%csrf_token%}
+								<input type="hidden" name="size" value="{{order_item.size}}">
+								<a class="addButton" href="{% url 'add-to-cart' order_item.product.slug %}">
+								<i class="fas fa-plus"></i></a>
+							</form>
+							</div>
+					
+						</td>
+						<td class="font-weight-bold">
+							<strong>${{ order_item.get_total_item_price }}</strong>
+						</td>
+						<td>
+							<a href="{% url 'delete-from-cart' order_item.product.slug %}">
+								<button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip"
+								data-placement="top" title="Remove item">X
+								</button>
+							</a>
+						</td>
+							{% empty %}
+							<td>
+								<td colspan='5'>Your cart is empty</td>
+							</td>
+							<td>
+								<td colspan="5">
+									<a class='btn btn-primary float-right' href="{%url 'products'%}">Continue shopping</a>
+								</td>
+							</td>
+					</tr>
+					
+						{%endfor%}
+					<!-- Fourth row -->
+					{%if order.get_cart_items%}
+					<tr>
+						<td colspan="3"></td>
+						<td>
+							<h4 class="mt-2">
+								<strong>Total</strong>
+							</h4>
+						</td>
+						<td class="text-right">
+							<h4 class="mt-2">
+								<strong>${{ order.get_total }}</strong>
+							</h4>
+						</td>
+						<td colspan="3" class="text-right">
+							
+							<a href="{%url 'products'%}"><button type="button" class="btn btn-primary btn-rounded px-4">
+								<i class="fas fa-angle-left left"></i>Continue shopping</button></a>
+							<a href="{%url 'checkout'%}"><button type="button" class="btn btn-warning btn-rounded px-4">Complete purchase
+								<i class="fas fa-angle-right right"></i>
+							</button>
+							</a>
+						</td>
+						
+					</tr>
+					{%endif%}
+					<!-- Fourth row -->
+				</tbody>
+				<!-- Table body -->
+			</table>
+		</div>
+		<!-- Shopping Cart table -->
+
+	</section>
+	<!-- Section: Block Content -->
+
+</div>
+
+{%endblock%}

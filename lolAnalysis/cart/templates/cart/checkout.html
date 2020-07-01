@@ -1,0 +1,191 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block content%}
+
+<title>Checkout</title>
+<div class="container mt-5">
+
+
+  <!--Section: Content-->
+  <section class="dark-grey-text">
+
+    <div class="card">
+      <div class="card-body">
+
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-lg-8">
+
+            <!-- Pills navs -->
+            <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="" role="tab">Date facturare</a>
+              </li>
+            </ul>
+
+            <!-- Pills panels -->
+            <div class="tab-content pt-4">
+
+              <!--Panel 1-->
+              <div class="tab-pane fade in show active" id="tabCheckoutBilling123" role="tabpanel">
+              
+                <!--Card content-->
+                <form class="card-body" method="POST" >
+                  {%csrf_token%}
+                  <!--Grid row-->
+              
+
+                    <!--Grid column-->
+                  <div class="md-form mb-5">
+                    <input type='text' placeholder="Nume" id='nume' name='nume' class='form-control' required/>
+        
+                  </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                <div class="md-form mb-5">
+                  <input type='text' placeholder="Prenume" id='prenume' name='prenume' class='form-control'required />
+             
+                </div>
+                    <!--Grid column-->
+
+                  <!--Grid row-->
+
+                  <!--Username-->
+                
+
+                  <!--email-->
+                  <div class="md-form mb-5">
+                  <input type='text' placeholder="Email" id='email' name='email' class='form-control' required/>
+               
+                  </div>
+
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        
+                        <input type='text' placeholder='Județ' id='judet' name='judet' class='form-control' required/>
+                        <div class="invalid-feedback">
+                          Introdu județul.
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                     
+                        <input type='text' placeholder='Localitate' id='localitate' name='localitate' class='form-control'required />
+                        <div class="invalid-feedback">
+                          Introdu localitatea.
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        
+                        <input type='text' placeholder='Adresa' id='adresa' name='adresa' class='form-control' required/>
+                        <div class="invalid-feedback">
+                          Introdu adresa.
+                        </div>
+                      </div>
+                    </div>
+                  <div class="md-form mb-5">
+                    <input type='text' placeholder="Cod poștal"id='cod_postal' name='cod_postal' class='form-control'required />
+                  
+                  </div>
+                  <!--address-->
+                    
+                  <h3>Modalitate de plată</h3>
+                  
+                  <div class="d-block my-3">
+                    {% for value, name in form.fields.modalitate_de_plata.choices %}
+                    <div class="custom-control custom-radio">
+                      <input id="{{ name }}" name="modalitate_de_plata" value="{{ value }}" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Plasează comanda</button>
+                    
+                   
+                    <!--Grid column-->
+
+                
+                  <!--Grid row-->
+
+                
+
+                  </form>
+            </div>
+            </div>
+            <!-- Pills panels -->
+          
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 mb-4">
+
+            <!--Card-->
+            <div class="card z-depth-0 border border-light rounded-0">
+
+              <!--Card content-->
+              <div class="card-body">
+                <h4 class="mb-4 mt-1 h5 text-center font-weight-bold">Sumar comandă</h4>
+
+                <hr>
+              <d1 class="row">
+                <dd class="col-sm-4">
+                  <h5>Produs</h5>
+                </dd>
+                <dd class="col-sm-4">
+                  <h5>Cant.</h5>
+                </dd>
+                <dd class="col-sm-4">
+                  <h5>Preț</h5>
+                </dd>
+              </d1>
+              {%for item in order.get_cart_items%}
+                <dl class="row">
+                  <dd class="col-sm-4">
+                    {{item.product.title}} ({{item.size}})
+                  </dd>
+                  <dd class="col-sm-4">
+                    {{item.quantity}}
+                  </dd>
+                  <dd class="col-sm-4">
+                    ${{item.get_total_item_price}}
+                  </dd>
+                </dl>
+              
+                {%endfor%}
+                <hr>
+                <d1 class="row">
+                  <dd class="col-sm-6">
+                    <h4 class="mb-4 mt-1 h4 font-weight-bold text-center">Total</h4>
+                  </dd>
+                  
+                  <dd class="col-sm-6">
+                    <h4 class="mb-4 mt-1 font-weight-bold text-center">${{ order.get_total }}</h4>
+                  </dd>
+                </d1>
+              </div>
+            </div>
+            <!--/.Card-->
+
+
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+    </div>
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+{%endblock%}

@@ -1,0 +1,982 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<style>
+ #box
+{
+  width: auto;
+  margin: 0 auto;
+  padding: 4px;
+  background-color: var(--{{solo_tier}});
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAOqrAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='),  url('data:image/gif;base64,R0lGODlhAQABAPAAAOqrAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='),
+url('data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==');
+  background-repeat: no-repeat;
+  background-size: 0 4px, 0 100%, 0% 4px;
+  background-position: top center, top center, bottom center;
+  -webkit-animation: drawBorderFromCenter 4s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes drawBorderFromCenter {
+    0% {
+      background-size: 0 4px, 0 0, 100% 100%;
+    }
+    20% {
+      background-size: 100% 4px, 100% 0, 100% 100%;
+    }
+    66%
+    {
+      background-size: 100% 4px, 100% 96%, 100% 100%;
+    }
+    99%
+    {
+      background-size: 100% 4px, 100% 96%, 0 4px;
+    }
+}
+
+#content{
+  background: white;
+}
+
+:root {
+     --IRON: #b4b4b4;
+     --BRONZE: #F0E68C;
+     --SILVER: #808080;
+     --GOLD: #DAA520;
+     --PLATINUM: #006400;
+     --DIAMOND: #1E90FF;
+     --MASTER: #9400D3;
+     --GRANDMASTER: #B22222;
+     --CHALLENGER: #EEE8AA
+}
+#content{
+   background: url({{main_bg}});
+   background-size: 100%;
+   background-position: center top;
+  background-repeat: no-repeat;
+
+}
+.main-body{
+  color: white;
+}
+#ally{
+
+  border-radius: 10px;
+  background-color: red;
+ 
+
+}
+#enemy{
+    background-color: green;
+  border-radius: 10px;
+  
+}
+#best-shit{
+   background-color: blue;
+  border-radius: 10px;
+}
+#match-history-match{
+  background: url({{main_bg}});
+  background-repeat: no-repeat;
+  background-position: left top;
+  color: white;
+-webkit-box-shadow: inset -28px -11px 50px 50px #FFFFFF; 
+box-shadow: inset -28px -11px 50px 50px #FFFFFF;
+}
+
+</style>
+<div class="main-body">
+<div class="container mx-auto m-5 d-flex " id="box">
+  <div id="content" class="p-5">
+    {%if summoner_name%}
+    <div class="row">
+      <div id="icon-name-section" class="col-lg-3 col-md-6 col-sm-12 row d-flex justify-content-center">
+        <h4 class=" text-center w-100"> {{summoner_name}}</h4>
+        <img  src="{{summoner_icon}}" class="rounded-circle w-100"  width="200px" height="200px">
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 row d-flex mt-4" id="rank-section" >
+       
+          <div class="text-center w-50">
+              <h3>
+                Solo/Duo 
+              </h3>
+              <img width="100px" height="100px" src="{%static solo_tier_icon%}">
+              <h4>{{solo_tier}} {{solo_rank}}</h4>
+              <h4>{{solo_lp}} LP</h4>
+          </div>
+          <div class="text-center  w-50">
+              <h3>
+                 Flex
+              </h3>
+              <img width="100px" height="100px" src="{%static flex_tier_icon%}">
+              <h4>{{flex_tier}} {{flex_rank}}</h4>
+              <h4>{{flex_lp}} LP</h4>
+          </div>
+      </div>
+
+      <div class="col-lg-5 col-md-12 col-sm-6 d-flex row justify-content-center" id="goot-at-section">
+        <div class="w-100 row d-flex justify-content-center">
+          <img width="50px" height="50px" src="{%static 'Position_Grandmaster-Jungle.png'%}">
+          <img width="50px" height="50px" src="{%static 'Position_Diamond-Mid.png'%}">
+          <img width="50px" height="50px" src="{%static 'Position_Bronze-Bot.png'%}">
+        </div>
+       
+        <div class="w-100 row d-flex justify-content-center flex-nowrap">
+          <div class="row d-flex justify-content-center m-2">
+            <img width="100px" height="100px" class="rounded-circle" 
+            src="http://ddragon.leagueoflegends.com/cdn/10.11.1/img/champion/Ryze.png"> 
+            <h5 class="w-100 text-center">
+              Kills per minute: 25
+            </h5>
+          </div>
+          <div class="row d-flex justify-content-center m-2">
+            <img width="100px" height="100px" class="rounded-circle"
+            src="http://ddragon.leagueoflegends.com/cdn/10.11.1/img/champion/Anivia.png">
+            <h5 class="w-100 text-center">
+              Creeps per minute: 600
+            </h5>
+          </div>
+
+          <div class="row d-flex justify-content-center m-2">
+            <img width="100px" height="100px" class="rounded-circle"
+            src="http://ddragon.leagueoflegends.com/cdn/10.11.1/img/champion/Sylas.png">
+            <h5 class="text-center w-100">
+              Deaths per minute: 0
+            </h5>
+          </div>
+        </div>
+
+      </div>
+
+     
+        
+     </div>
+    </div>
+
+
+    {%else%}
+    <h4>Summoner not found.</h4>ss
+    {%endif%}
+</div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <p class="text-center">Recent games</p>
+      <div class="row">
+
+        <div class="col-12 text-center"id="match-history-match"> 
+            <div class="container-fluid  border border-dark m-3 row d-flex">
+
+              <div class="w-25 row d-flex">
+                <div class="w-100"><img src="{{champion}}"class="m-2" width="50px" height="50px"></div> 
+                  <div id="game-stats" class="w-100 text-center"> 
+                      <p>15/5/10</p>
+                      <p>355 cs</p>
+                      <p id="best-shit"> most dmg dealt</p>
+                  </div>
+              </div>
+
+              <div class="w-25 m-2 row d-flex">
+                <div id="build" class="w-100 row d-flex">  
+                    <div class="w-100"><img src="{{item1}}" width="33px" height="33px">
+                       <img src="{{item2}}" width="33px" height="33px">
+                       <img src="{{item3}}" width="33px" height="33px">
+                      </div>
+                    <div class="w-100"><img src="{{item4}}" width="33px" height="33px">
+                      <img src="{{item5}}" width="33px" height="33px">
+                      <img src="{{item6}}" width="33px" height="33px">
+                    </div>
+                </div>
+              
+                <div class="w-100">
+                  <img src="{{summoner_spell1}}"width="25px" height="25px">
+                  <img src="{{summoner_spell2}}" width="25px" height="25px">
+        
+                </div>
+              </div>
+              <div class="w-50 row mt-2 text-center">
+                <div class="col-6 row">
+                  <div class="col-6">
+                    <p id="enemy" class=>player</p>
+                  </div>
+                  <div class="col-6">
+                    <img src="{{champion}}"width="20px" height=20px>
+                  </div>
+                </div>
+              <div class="col-6 row">
+                  <div class="col-6">
+                    <p id="ally">player</p>
+                  </div>
+                  <div class="col-6">
+                      <img src="{{player2}}"width="20px" height=20px>
+                  </div>
+              </div>
+              <div class="col-6 row">
+                <div class="col-6">
+                  <p id="enemy" class=>player</p>
+                </div>
+                <div class="col-6">
+                  <img src="{{player3}}" width="20px" height=20px>
+                </div>
+              </div>
+                <div class="col-6 row">
+                  <div class="col-6">
+                    <p id="ally">player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player4}}" width="20px" height=20px>
+                  </div>
+                </div>
+                <div class="col-6 row">
+                  <div class="col-6">
+                    <p id="enemy" class=>player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player5}}" width="20px" height=20px>
+                  </div>
+                </div><div class="col-6 row">
+                  <div class="col-6">
+                    <p id="ally">player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player6}}" width="20px" height=20px>
+                  </div>
+                </div>
+                <div class="col-6 row">
+                  <div class="col-6">
+                    <p id="enemy" class=>player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player7}}" width="20px" height=20px>
+                  </div>
+                </div><div class="col-6 row">
+                  <div class="col-6">
+                    <p id="ally">player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player8}}" width="20px" height=20px>
+                  </div>
+                </div>
+                <div class="col-6 row">
+                  <div class="col-6">
+                    <p id="enemy" class=>player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player9}}" width="20px" height=20px>
+                  </div>
+                </div><div class="col-6 row">
+                  <div class="col-6">
+                    <p id="ally">player</p>
+                  </div>
+                  <div class="col-6">
+                    <img  src="{{player10}}" width="20px" height=20px>
+                  </div>
+                </div>
+                
+            
+              </div>
+            </div>
+      
+      </div>
+      <div class="col-12 text-center" id="match-history-match">
+        <div class="container-fluid  border border-dark m-3 row d-flex">
+      
+          <div class="w-25 row d-flex">
+            <div class="w-100"><img src="{{champion}}" class="m-2" width="50px" height="50px"></div>
+            <div id="game-stats" class="w-100 text-center">
+              <p>15/5/10</p>
+              <p>355 cs</p>
+              <p id="best-shit"> most farm</p>
+            </div>
+          </div>
+      
+          <div class="w-25 m-2 row d-flex">
+            <div id="build" class="w-100 row d-flex">
+              <div class="w-100"><img src="{{item1}}" width="33px" height="33px">
+                <img src="{{item2}}" width="33px" height="33px">
+                <img src="{{item3}}" width="33px" height="33px">
+              </div>
+              <div class="w-100"><img src="{{item4}}" width="33px" height="33px">
+                <img src="{{item5}}" width="33px" height="33px">
+                <img src="{{item6}}" width="33px" height="33px">
+              </div>
+            </div>
+      
+            <div class="w-100">
+              <img src="{{summoner_spell1}}" width="25px" height="25px">
+              <img src="{{summoner_spell2}}" width="25px" height="25px">
+      
+            </div>
+          </div>
+          <div class="w-50 row mt-2 text-center">
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{champion}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player2}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player3}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player4}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player5}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player6}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player7}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player8}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player9}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player10}}" width="20px" height=20px>
+              </div>
+            </div>
+      
+      
+          </div>
+        </div>
+      
+      </div>
+      <div class="col-12 text-center" id="match-history-match">
+        <div class="container-fluid  border border-dark m-3 row d-flex">
+      
+          <div class="w-25 row d-flex">
+            <div class="w-100"><img src="{{champion}}" class="m-2" width="50px" height="50px"></div>
+            <div id="game-stats" class="w-100 text-center">
+              <p>15/5/10</p>
+              <p>355 cs</p>
+              <p id="best-shit"> most kills</p>
+            </div>
+          </div>
+      
+          <div class="w-25 m-2 row d-flex">
+            <div id="build" class="w-100 row d-flex">
+              <div class="w-100"><img src="{{item1}}" width="33px" height="33px">
+                <img src="{{item2}}" width="33px" height="33px">
+                <img src="{{item3}}" width="33px" height="33px">
+              </div>
+              <div class="w-100"><img src="{{item4}}" width="33px" height="33px">
+                <img src="{{item5}}" width="33px" height="33px">
+                <img src="{{item6}}" width="33px" height="33px">
+              </div>
+            </div>
+      
+            <div class="w-100">
+              <img src="{{summoner_spell1}}" width="25px" height="25px">
+              <img src="{{summoner_spell2}}" width="25px" height="25px">
+      
+            </div>
+          </div>
+          <div class="w-50 row mt-2 text-center">
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{champion}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player2}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player3}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player4}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player5}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player6}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player7}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player8}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player9}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player10}}" width="20px" height=20px>
+              </div>
+            </div>
+      
+      
+          </div>
+        </div>
+      
+      </div>
+      <div class="col-12 text-center" id="match-history-match">
+        <div class="container-fluid  border border-dark m-3 row d-flex">
+      
+          <div class="w-25 row d-flex">
+            <div class="w-100"><img src="{{champion}}" class="m-2" width="50px" height="50px"></div>
+            <div id="game-stats" class="w-100 text-center">
+              <p>15/5/10</p>
+              <p>355 cs</p>
+              <p id="best-shit"> most deaths</p>
+            </div>
+          </div>
+      
+          <div class="w-25 m-2 row d-flex">
+            <div id="build" class="w-100 row d-flex">
+              <div class="w-100"><img src="{{item1}}" width="33px" height="33px">
+                <img src="{{item2}}" width="33px" height="33px">
+                <img src="{{item3}}" width="33px" height="33px">
+              </div>
+              <div class="w-100"><img src="{{item4}}" width="33px" height="33px">
+                <img src="{{item5}}" width="33px" height="33px">
+                <img src="{{item6}}" width="33px" height="33px">
+              </div>
+            </div>
+      
+            <div class="w-100">
+              <img src="{{summoner_spell1}}" width="25px" height="25px">
+              <img src="{{summoner_spell2}}" width="25px" height="25px">
+      
+            </div>
+          </div>
+          <div class="w-50 row mt-2 text-center">
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{champion}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player2}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player3}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player4}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player5}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player6}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player7}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player8}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player9}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player10}}" width="20px" height=20px>
+              </div>
+            </div>
+      
+      
+          </div>
+        </div>
+      
+      </div>
+      <div class="col-12 text-center" id="match-history-match">
+        <div class="container-fluid  border border-dark m-3 row d-flex">
+      
+          <div class="w-25 row d-flex">
+            <div class="w-100"><img src="{{champion}}" class="m-2" width="50px" height="50px"></div>
+            <div id="game-stats" class="w-100 text-center">
+              <p>15/5/10</p>
+              <p>355 cs</p>
+              <p id="best-shit"> most gold</p>
+            </div>
+          </div>
+      
+          <div class="w-25 m-2 row d-flex">
+            <div id="build" class="w-100 row d-flex">
+              <div class="w-100"><img src="{{item1}}" width="33px" height="33px">
+                <img src="{{item2}}" width="33px" height="33px">
+                <img src="{{item3}}" width="33px" height="33px">
+              </div>
+              <div class="w-100"><img src="{{item4}}" width="33px" height="33px">
+                <img src="{{item5}}" width="33px" height="33px">
+                <img src="{{item6}}" width="33px" height="33px">
+              </div>
+            </div>
+      
+            <div class="w-100">
+              <img src="{{summoner_spell1}}" width="25px" height="25px">
+              <img src="{{summoner_spell2}}" width="25px" height="25px">
+      
+            </div>
+          </div>
+          <div class="w-50 row mt-2 text-center">
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{champion}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player2}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player3}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player4}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player5}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player6}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player7}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player8}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player9}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player10}}" width="20px" height=20px>
+              </div>
+            </div>
+      
+      
+          </div>
+        </div>
+      
+      </div>
+      <div class="col-12 text-center" id="match-history-match">
+        <div class="container-fluid  border border-dark m-3 row d-flex">
+      
+          <div class="w-25 row d-flex">
+            <div class="w-100"><img src="{{champion}}" class="m-2" width="50px" height="50px"></div>
+            <div id="game-stats" class="w-100 text-center">
+              <p>15/5/10</p>
+              <p>355 cs</p>
+              <p id="best-shit"> most something</p>
+            </div>
+          </div>
+      
+          <div class="w-25 m-2 row d-flex">
+            <div id="build" class="w-100 row d-flex">
+              <div class="w-100"><img src="{{item1}}" width="33px" height="33px">
+                <img src="{{item2}}" width="33px" height="33px">
+                <img src="{{item3}}" width="33px" height="33px">
+              </div>
+              <div class="w-100"><img src="{{item4}}" width="33px" height="33px">
+                <img src="{{item5}}" width="33px" height="33px">
+                <img src="{{item6}}" width="33px" height="33px">
+              </div>
+            </div>
+      
+            <div class="w-100">
+              <img src="{{summoner_spell1}}" width="25px" height="25px">
+              <img src="{{summoner_spell2}}" width="25px" height="25px">
+      
+            </div>
+          </div>
+          <div class="w-50 row mt-2 text-center">
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{champion}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player2}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player3}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player4}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player5}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player6}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player7}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player8}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="enemy" class=>player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player9}}" width="20px" height=20px>
+              </div>
+            </div>
+            <div class="col-6 row">
+              <div class="col-6">
+                <p id="ally">player</p>
+              </div>
+              <div class="col-6">
+                <img src="{{player10}}" width="20px" height=20px>
+              </div>
+            </div>
+      
+      
+          </div>
+        </div>
+      
+      </div>
+      
+  </div>
+  
+</div>
+
+
+<div class="col-6 row">
+  <div class="col-2">
+
+  </div>
+  <div class="col-8 row">
+      <div class="col-12 row flex mt-2">
+      <table class="table table-striped border border-dark">
+        <tbody>
+          <tr>
+            <th >
+              <img class="rounded-circle" width="100px" height="100px" src="{{champion}}"> 
+            </th>
+            <td>
+              <p>KDA 2.55</p>
+              <P>5.5/6.6/7.7</P>
+            </td>
+            <td>
+              <p>55 World</p>
+              <p>2 Eune</p>
+            </td>
+            <td>
+              <p>55 played</p>
+              <p>99% winrate</p>
+            </td>
+          </tr>
+<tr>
+  <th>
+    <img width="100px" height="100px" src="{{champion}}" class="rounded-circle">
+  </th>
+  <td>
+    <p>KDA 2.55</p>
+    <P>5.5/6.6/7.7</P>
+  </td>
+  <td>
+    <p>55 World</p>
+    <p>2 Eune</p>
+  </td>
+  <td>
+    <p>55 played</p>
+    <p>99% winrate</p>
+  </td>
+</tr>
+  <tr>
+    <th>
+      <img width="100px" height="100px" src="{{champion}}" class="rounded-circle">
+    </th>
+    <td>
+      <p>KDA 2.55</p>
+      <P>5.5/6.6/7.7</P>
+    </td>
+    <td>
+      <p>55 World</p>
+      <p>2 Eune</p>
+    </td>
+    <td>
+      <p>55 played</p>
+      <p>99% winrate</p>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <img width="100px" height="100px" src="{{champion}}" class="rounded-circle">
+    </th>
+    <td>
+      <p>KDA 2.55</p>
+      <P>5.5/6.6/7.7</P>
+    </td>
+    <td>
+      <p>55 World</p>
+      <p>2 Eune</p>
+    </td>
+    <td>
+      <p>55 played</p>
+      <p>99% winrate</p>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <img width="100px" height="100px" src="{{champion}}" class="rounded-circle">
+    </th>
+    <td>
+      <p>KDA 2.55</p>
+      <P>5.5/6.6/7.7</P>
+    </td>
+    <td>
+      <p>55 World</p>
+      <p>2 Eune</p>
+    </td>
+    <td>
+      <p>55 played</p>
+      <p>99% winrate</p>
+    </td>
+  </tr>
+        </tbody>
+      </table>
+      </div>
+     
+  </div>
+  <div class="col-2">
+
+  </div>
+
+
+</div>
+
+
+</div>
+</div>
+{%endblock%}

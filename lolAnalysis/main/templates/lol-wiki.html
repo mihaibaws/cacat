@@ -1,0 +1,755 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+
+
+
+<head>
+<title>Wiki</title>
+</head>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+   $(function () {
+         $('.img-fluid').on('click', function () {
+            $('.imagepreview').attr('src', $(this).find('.img-fluid').attr('src'));
+            $('#imagemodal').modal('show');
+         });
+      });
+</script>
+<!-- Creates the bootstrap modal where the image will appear -->
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         
+         <div class="modal-body">
+            <img src="" id="imagepreview">
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="container mt-5">
+
+
+   <!--Section: Content-->
+   <section class="dark-grey-text">
+
+      <!-- Section heading -->
+      <h2 class="text-center font-weight-bold mb-4 pb-2">Să începem!</h2>
+      <!-- Section description -->
+      <p class="text-center mx-auto w-responsive mb-5">Cum e și normal, o să începem cu începutul. Un mic istoric al LOL-ului de la 
+         începuturile Alpha până la apogeul cancerului in S10.
+      </p>
+
+      <!-- Grid row -->
+      <div class="row align-items-center">
+
+         <!-- Grid column -->
+         <div class="col-lg-5">
+
+            <!-- Featured image -->
+            <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+               <img class="img-fluid" src="{%static 'singed.jpg'%}" alt="Sample image">
+               <a>
+                  <div class="mask rgba-white-slight"></div>
+               </a>
+            </div>
+
+         </div>
+         <!-- Grid column -->
+
+         <!-- Grid column -->
+         <div class="col-lg-7">
+
+            <!-- Category -->
+            <a href="#!">
+               <h6 class="font-weight-bold mb-3"><i class="fas fa-backward"></i> Back to October 2008</h6>
+            </a>
+            <!-- Post title -->
+            <h4 class="font-weight-bold mb-3"><strong>Primul joc al Riot Games este anuțat la 7 octombrie 2008.</strong></h4>
+            <!-- Excerpt -->
+            <p>Cu o varietate de doar 17 campioni (comparativ cu cei 148 din prezent), League of Legends își face debutul în online.
+               Alpha stage cuprinde perioada februarie-aprilie în care jocul își pregătește ultimele update-uri înainte de a fi 
+               pus la dispoziția audienței.
+            </p>
+            <!-- Post data -->
+            <p><strong>Fun fact:</strong> Deși neanunțat inițial în lista celor 17 campioni, Singed se remarcă în lista eroilor League of Legends
+               fiind primul dezvoltat de Steve 'Guinsoo' Feak.
+            </p>
+            <a href= "https://leagueoflegends.fandom.com/wiki/Steve_%27Guinsoo%27_Feak" class="btn btn-success btn-md btn-rounded mx-0">
+               Citește mai mult</a>
+
+         </div>
+         <!-- Grid column -->
+
+      </div>
+
+      <hr class="my-3">
+
+      <div class="row align-items-center">
+      
+         <!-- Grid column -->
+      
+         <!-- Grid column -->
+      
+         <!-- Grid column -->
+         <div class="col-lg-7">
+      
+     
+            <!-- Post title -->
+            <h4 class="font-weight-bold mb-3"><strong>Summoner's Rift</strong></h4>
+            <!-- Excerpt -->
+            <p>După ce au mai fost adăugați campioni pana aceștia au atins numărul de 40 (încă 4 fiind adăugați imediat
+               după), Summoner's Rift își deschide porțile. Invocatorii au avut la dispoziție aproximativ 25 de iteme dintre
+               care, pana în prezent, nici măcar numele vreunuia nu a rămas neschimbat.
+            </p>
+            <!-- Post data -->
+            <p><strong>Fun fact: </strong>Summoner's Rift are o întindere de 0.2214km^2.</p>
+            <!-- Read more button -->
+          
+         </div>
+         <!-- Grid column -->
+         <div class="col-lg-5">
+      
+            <!-- Featured image -->
+            <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+               <img class="img-fluid" src="{% static 'champions.png'%}" alt="Sample image">
+               <a>
+                  <div class="mask rgba-white-slight"></div>
+               </a>
+            </div>
+      
+         </div>
+      </div>
+      <hr class="my-3">
+      <div class="row align-items-center">
+      
+         <!-- Grid column -->
+         <div class="col-lg-5">
+      
+            <!-- Featured image -->
+            <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+               <img class="img-fluid" src="{%static 'reviews.jpg'%}" alt="Sample image">
+               <a>
+                  <div class="mask rgba-white-slight"></div>
+               </a>
+            </div>
+             
+      
+      </div>
+      <div class="col-lg-7">
+      
+         <!-- Category -->
+         <a href="#!">
+            <h6 class="font-weight-bold mb-3">Beta</h6>
+         </a>
+         <!-- Post title -->
+         <h4 class="font-weight-bold mb-3"><strong>Primele impresii.</strong></h4>
+         <!-- Excerpt -->
+         <p>Într-o perioadă în care jocurile de tip MOBA își făceau simțita prezența în industria online-ului (primul joc de
+            tip MOBA
+            fiind lansat în 1998), League of League se remarcă prin design și gameplay. Deși mult mai lipsit de viață decât în
+            2020, Summoner's Rift-ul a fost apreciat în 2009 de numeroși playeri care aveau deja experiență în tipul acesta de
+            jocuri (în perioada
+            aceea: Demigod, Dota etc).
+         </p>
+      
+         <p><strong>Fun fact: </strong>În primele 2 săptămâni de la lansare jocul atinge 100.000 playeri. În 2010 este premiat pentru numărul imens al audienței (printre altele) care în 2011
+            atinge 11,5 milioane de playeri lunar.</p>
+      
+      
+      </div>
+         <!-- Grid column -->
+      
+         <!-- Grid column -->
+         
+         <!-- Grid column -->
+  
+    
+      <!-- Grid row -->
+            <!-- Grid row -->
+            
+            
+            <hr class="my-3">
+      
+
+   </section>
+   <!--Section: Content-->
+   <hr class="my-3">
+
+</div>
+
+<div class="container mt-5">
+
+
+   <!--Section: Content-->
+   <section class="dark-grey-text text-center">
+
+      <style>
+         .md-pills .nav-link.active {
+            background-color: #3f51b5;
+         }
+      </style>
+
+      <!-- Section heading -->
+      <h3 class="font-weight-bold mb-4 pb-2">League of Legends goes live.</h3>
+      <!-- Section description -->
+      <p class="text-muted w-responsive mx-auto mb-5">De la un joc recent lansat pana la cel mai jucat joc (2014, 2019)</p>
+
+      <!--First row-->
+      <div class="row">
+
+         <!--First column-->
+         <div class="col-12">
+
+            <!-- Nav tabs -->
+            <ul class="nav md-pills flex-center flex-wrap mx-0" role="tablist">
+               <li class="nav-item">
+                  <a class="nav-link active font-weight-bold" data-toggle="tab" href="#panel31" role="tab">Season 1</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel32" role="tab">Season 2</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel33" role="tab">Season 3</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel34" role="tab">Season 4</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel35" role="tab">Season 5</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel36" role="tab">Season 6</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel37" role="tab">Season 7</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel38" role="tab">Season 8</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel39" role="tab">Season 9</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel41" role="tab">Season 10</a>
+               </li>
+            </ul>
+
+         </div>
+         <!--First column-->
+
+      </div>
+      <!--First row-->
+
+      <!--Tab panels-->
+      <div class="tab-content p-5">
+
+         <!--Panel 1-->
+         <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
+
+            <!--First row-->
+            <div class="row">
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez1-1.jpg'%}" class="img-fluid">
+                  </div>
+                  <p class="text-uppercase text-center font-weight-bold text-muted my-4"></p>
+               </div>
+               <!--First column-->
+
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez1-2.png'%}" class="img-fluid">
+                  </div>
+                  <p class="text-uppercase text-center font-weight-bold text-muted my-4"></p>
+               </div>
+               <!--Second column-->
+
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez1-3.png'%}" class="img-fluid">
+                  </div>
+                  <p class="text-uppercase text-center font-weight-bold text-muted my-4"></p>
+               </div>
+               <div class="col-12">
+               <p class="text-center">
+                  Sezonul 1 vine cu mari îmbunatățiri în ceea ce privește gameplay-ul si design-ul.Deși încă
+                  la început, League of Legends pune la dipoziție jucătorilor modurile de joc 5 vs 5 Premade,
+                  5 vs 5 Solo, 3 vs 3 Premade. În funcție de divizia în care se aflau la sfârșitul sezonului, 
+                  invocatorii au primit (sau nu) Skin-ul Victorious Jarvan. În plus, toți veteranii
+                  sezonului 1 au primit si Judgement Kayle.
+               </p>
+               </div>
+            </div>
+            <!--First row-->
+
+         </div>
+         <!--Panel 1-->
+
+         <!--Panel 2-->
+         <div class="tab-pane fade" id="panel32" role="tabpanel">
+            <div class="row">
+               <div class="col-12">
+               <p class="text-center">
+                  (Când ne-am apucat și noi de treabă)
+               </p>
+               </div>
+            </div>
+            <!--First row-->
+            <div class="row">
+
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez2-1.jpg'%}" class="img-fluid">
+                  </div>
+                  
+               </div>
+               <!--First column-->
+
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez2-2.png'%}" class="img-fluid">
+                  </div>
+                  
+               </div>
+               <!--Second column-->
+
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez2-3.jpg'%}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--Third column-->
+               <div class="col-12">
+                     <p class="text-center">
+                        În sezonul 2 un nou mod de joc este introdus: Dominion. Acum apare și modul 
+                        spectate. Prize pool-ul pentru World's Champions ajunge la $5.000.000 (în sezonul 1
+                        fiind de doar $100.000). Este exclusa mecanica de dodge (șansa campionilor de a ignora in totalitate
+                        hit-urile adversarilor). League of Legends ajunge la al 100-lea campion (Jayce).
+                     </p>
+               </div>
+            </div>
+            <!--First row-->
+
+         </div>
+         <!--Panel 2-->
+
+         <!--Panel 3-->
+         <div class="tab-pane fade" id="panel33" role="tabpanel">
+
+            <!--First row-->
+            <div class="row">
+
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez3-1.png'%}" class="img-fluid">
+                  </div>
+                
+               </div>
+               <!--First column-->
+
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez3-2.png'%}" class="img-fluid">
+                  </div>
+               
+               </div>
+               <!--Second column-->
+
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez3-3.jpg'%}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--Third column-->
+
+            </div>
+            <!--First row-->
+            <div class="row">
+               <div class="col-12">
+                     <p class="text-center">
+                        Sezonul 3 aduce sistemul de ranking bazat pe 
+                        <a href="https://leagueoflegends.fandom.com/wiki/Elo_rating_system">Elo</a>.
+                        Un nou set de măiestrii este adus jucătorilor. League of Legends devine disponibil
+                        pentru Mac. Howling Abyss înlocuiește Poligonul de antrenament în modul de joc Aram.
+                        Playerii nepoliticoși încep să aibă de-a face pentru prima oara cu sistemul de restricționare
+                        a chat-ului. Faker intră în competiție.
+                     </p>
+               </div>
+            </div>
+
+         </div>
+         <!--Panel 3-->
+
+         <!--Panel 4-->
+         <div class="tab-pane fade" id="panel34" role="tabpanel">
+
+            <!--First row-->
+            <div class="row">
+
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez4-1.jpg'%}" class="img-fluid">
+                  </div>
+                  
+               </div>
+               <!--First column-->
+
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez4-2.jpg'%}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--Second column-->
+
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez4-3.jpg'%}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--Third column-->
+               <div class="row">
+                  <div class="col-12">
+                        <p class="text-center">
+                           Sezonul 4 ofera pentru prima oara jucătorilor modul de joc URF de April Fools' Day. E introdus un nou set
+                           de măiestrii (iar :\). Summoner's Rift primește update-ul mult așteptat(împreună cu un nou audio engine -<a href="https://www.youtube.com/watch?v=FjKkvgjBRrY">
+                           vechi / </a> <a href="https://www.youtube.com/watch?v=iy6YDd5iHB4">nou</a>). Este introdus trinket-ul. Fiecare player
+                           este limitat la maxim 3 ward-uri smiultan (sad niBBa). SSW castiga Worlds 2014.
+                        </p>
+                  </div>
+               </div>
+            </div>
+            <!--First row-->
+
+         </div>
+         <!--Panel 4-->
+         <div class="tab-pane fade" id="panel35" role="tabpanel">
+         
+            <!--First row-->
+            <div class="row">
+         
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez5-1.jpg'%}" class="img-fluid">
+                  </div>
+               
+               </div>
+               <!--First column-->
+         
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez5-2.jpg'%}" class="img-fluid">
+                  </div>
+                
+               </div>
+               <!--Second column-->
+         
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez5-3.jpg'%}" class="img-fluid">
+                  </div>
+                  
+               </div>
+               <!--Third column-->
+               
+            </div>
+            <!--First row-->
+            <div class="row">
+               <div class="col-12">
+                     <p class="text-center">
+                      Sezonul 5 se remarcă prin unul dintre cele mai canceroase feature-uri prin care toti pușcăriașii aka Yasuo main încep sa spameze
+                      mastery-ul (și eu am fost main yasuo 300k mastery ggez *eram hardstuck silver-gold* **nu din cauza campionului**) - maxim lvl 5. Scuttler-ul
+                      incepe să facă juke-uri în Summoner's Rift. Riot mai stoarce niște bani de la jucători prin adăugarea de noi culori skin-urilor (chromas).
+                      Este introdus pentru prima data One for All.
+                     </p>
+                  </div>
+               </div>
+           
+         </div>
+         <div class="tab-pane fade" id="panel36" role="tabpanel">
+         
+            <!--First row-->
+            <div class="row">
+         
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez6-1.jpg'%}" class="img-fluid">
+                  </div>
+              
+               </div>
+               <!--First column-->
+         
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez6-2.jpg'%}" class="img-fluid">
+                  </div>
+               
+               </div>
+               <!--Second column-->
+         
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez6-3.jpg' %}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--Third column-->
+         
+            </div>
+            <!--First row-->
+            <div class="row">
+               <div class="col-12">
+                  <p class="text-center">
+                     Sezonul 6 aduce pentru prima oara skin-uri gratuite audientei prin Hextech Crafting. Apare prin urmare și Gemstone-ul și primul skin Mythic 
+                     (Soulstealer Vayne) Dagonul ofera pentru prima data buff-uri și este introdus Rift Herald. Nou mod de joc: Doom Bots.
+                     Se poate atinge Champion Mastery lvl 6 si 7 (cancer++).
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane fade" id="panel37" role="tabpanel">
+         
+            <!--First row-->
+            <div class="row">
+         
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez7-1.png'%}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--First column-->
+         
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez7-2.png'%}" class="img-fluid">
+                  </div>
+              
+               </div>
+               <!--Second column-->
+         
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez7-3.jpg'%}" class="img-fluid">
+                  </div>
+              
+               </div>
+               <!--Third column-->
+         
+            </div>
+            <!--First row-->
+            <div class="row">
+               <div class="col-12">
+                  <p class="text-center">
+                     Sezonul 7 vine cu un nou sistem de <a href="https://leagueoflegends.fandom.com/wiki/Honor">Honor</a>. Sunt introduse plantele din
+                     junglă și in-game emotes. Modul de Practice Tool devine disponibil. Pentru prima oară este adusă în joc mecanica de letalitate.
+                     Suporții sunt obligați să devina mai activi prin adaugarea quest-urilor pe itemele specifice. Noi moduri de joc: Hunt of the Blood
+                     Moon, Dark Star: Singularity, Invasion.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane fade" id="panel38" role="tabpanel">
+         
+            <!--First row-->
+            <div class="row">
+         
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez8-1.jpg'%}" class="img-fluid">
+                  </div>
+                  
+               </div>
+               <!--First column-->
+         
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez8-2.png'%}" class="img-fluid">
+                  </div>
+               </div>
+               <!--Second column-->
+         
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez8-3.png'%}" class="img-fluid">
+                  </div>
+               
+               </div>
+               <!--Third column-->
+         
+            </div>
+            <!--First row-->
+            <div class="row">
+               <div class="col-12">
+                  <p class="text-center">
+                     În sezonul 8 runele împreună cu măiestriile sunt combinate într-un singur sistem care asigură jucătorilor aceleași facilități plus 
+                     altele noi și eliminând astfel avantajul playerilor mai vehchi (întrucât vechile rune trebuiau cumparate și trebuia lvl 30 pentru a le 
+                     echipa pe toate). Influence points sunt înlocuite de blue essence. Este înlăturată bariera de maxim lvl 30, fiind astfel și creat un nou sistem 
+                     de lvl up și currency.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane fade" id="panel39" role="tabpanel">
+         
+            <!--First row-->
+            <div class="row">
+         
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez9-1.jpg'%}" class="img-fluid">
+                  </div>
+                
+               </div>
+               <!--First column-->
+         
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez9-2.png'%}" class="img-fluid">
+                  </div>
+                 
+               </div>
+               <!--Second column-->
+         
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez9-3.png'%}" class="img-fluid">
+                  </div>
+               
+               </div>
+               <!--Third column-->
+         
+            </div>
+            <!--First row-->
+            <div class="row">
+               <div class="col-12">
+                  <p class="text-center">
+                     În sezonul 9, în acord cu numele, Riot Games aduce jucătorilor un nou joc: Teamfight Tactics și sunt anunțate alte jocuri care vor fi live în viitorul
+                     apropiat (până acum Riot Games avea un singur joc
+                     și numele nu prea avea sens, pentru cine nu s-a prins). Numărul diviziilor este redus de la 5 la 4 pentru fiecare tier. Este introdus Iron și
+                     Grandmaster. Sezonul este împărțit în 3 părți (în privința rank-ului), iar sfârșitul ficărui segment ficare jucător este premiat cu un emote cu
+                     divizia în care se află în acel moment.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane fade" id="panel41" role="tabpanel">
+         
+            <!--First row-->
+            <div class="row">
+         
+               <!--First column-->
+               <div class="col-lg-4 col-md-12 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez10-1.jpg'%}" class="img-fluid">
+                  </div>
+                
+               </div>
+               <!--First column-->
+         
+               <!--Second column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez10-2.jpg'%}" class="img-fluid">
+                  </div>
+                
+               </div>
+               <!--Second column-->
+         
+               <!--Third column-->
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <!--Featured image-->
+                  <div class="view overlay zoom z-depth-2">
+                     <img src="{%static 'sez10-3.png'%}" class="img-fluid">
+                  </div>
+              
+               </div>
+               <!--Third column-->
+         
+            </div>
+            <!--First row-->
+            <div class="row">
+              <div class="col-12">
+                  <p class="text-center">
+                     Sezonul 10 marcheaza schimbări majore privind Summoner's Rift: <a href="https://leagueoflegends.fandom.com/wiki/Dragon_pit_(League_of_Legends)">
+                     Dragonul</a> oferă noi buff-uri și este introdusă noțiunea de Dragon Soul; culoarele top și bot primesc schimbări privind construcția: sunt 
+                     adăugate noi porțiuni. Harta Twisted Treeline este eliminată din joc. Noi tufișuri sunt adăugate în Summoner's Rift. 
+                     Runa <a href="https://leagueoflegends.fandom.com/wiki/Kleptomancy">Kleptomancy</a> este scoasă din joc.
+                  </p>
+               </div>
+            </div>
+         </div>
+         
+         
+      
+      </div>
+      <!--Tab panels-->
+
+   </section>
+
+
+</div>
+{%endblock%}

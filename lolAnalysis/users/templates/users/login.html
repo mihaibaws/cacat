@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+
+
+
+		<div class="container my-5 px-0 z-depth-1">
+
+  <!--Section: Content-->
+  <section class="p-5 my-md-5 text-center">
+
+    <form class="my-5 mx-md-5" method ="POST">
+		{%csrf_token%}
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <!-- Material form login -->
+          <div class="card">
+
+            <!--Card content-->
+            <div class="card-body">
+
+              <!-- Form -->
+              <form class="text-center" style="color: #757575;" action="#!">
+
+                <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
+
+                <!-- Name -->
+			  	{{form|crispy}}
+                <small id="passwordHelpBlock" class="form-text text-right blue-text">
+                  <a href="{%url 'register'%}">Don't have an account ? Sign up</a>
+                </small>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Log in</button>
+                </div>
+
+              </form>
+              <!-- Form -->
+
+            </div>
+
+          </div>
+          <!-- Material form login -->
+        </div>
+      </div>
+
+    </form>
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+{%endblock%}

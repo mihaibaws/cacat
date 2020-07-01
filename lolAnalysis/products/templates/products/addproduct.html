@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+
+<form id="post_form" method="post"  enctype="multipart/form-data" class="text-center border border-light p-5">
+{% csrf_token %}
+<!-- Default form contact -->
+
+    <p class="h4 mb-4">Add product</p>
+    {{product_form|crispy}}
+    {{formset|crispy}}
+    
+
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+{%endblock%}

@@ -1,0 +1,182 @@
+body, html{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+body{
+  display: flex;
+}
+
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+  position: fixed;
+  z-index: 1;
+
+}
+
+.game-img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.options{
+   position: fixed;
+  z-index: 1;
+  top: 7%;
+  float: right;
+  left: 25%;
+}
+.options > p{
+  text-align: center;
+  color: white;
+  border: 2px white solid;
+  padding: 20px 10px;
+  margin: 0;
+}
+.choices{
+ 
+}
+.choices > button{
+  margin: 35px;
+  padding: 25px 100px;
+  background-color: blue;
+  border: 0;
+  color: white;
+}
+#hint-btn{
+  position: absolute;
+  z-index: 1;
+  left: 88%;
+  top: 60%;
+  padding: 15px 35px;
+  background-color: red;
+  border: 0;
+}
+.spot1{
+  color: white;
+  z-index: 1;
+  position: fixed;
+  top: 74%;
+  left: 5%;
+  padding: 50px;
+  border: 5px red solid;
+  border-radius: 100%;
+  display: none;
+}
+
+.spot2{
+ color: white;
+  z-index: 1;
+  position: fixed;
+  top: 79%;
+  left: 89%;
+  padding: 50px;
+  border: 5px red solid;
+  border-radius: 100%;
+  display: none;
+}
+.spot3{
+   color: white;
+  z-index: 1;
+  position: fixed;
+  top: 85%;
+  left: 93%;
+  padding: 30px;
+  border: 5px red solid;
+  border-radius: 100%;
+  display: none;
+}
+
+.hint1{
+  color: red;
+  z-index: 1;
+  position: fixed;
+  top: 85%;
+  left: 48.8%;
+  padding: 35px;
+  border: 10px solid red;
+  display: none;
+}
+
+.hint2{
+  color: red;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 48.8%;
+  padding: 35px;
+  border: 10px solid red;
+  display: none;
+}
+
+.hint3{
+  color: red;
+  z-index: 1;
+  position: fixed;
+  top: 20%;
+  left: 48.8%;
+  padding: 35px;
+  border: 10px solid red;
+  display: none;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}

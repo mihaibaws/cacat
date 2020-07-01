@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+
+
+	<div class="container my-5 py-5 z-depth-1">
+	
+	
+		<!--Section: Content-->
+		<section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+	
+	
+			<!--Grid row-->
+			<div class="row d-flex justify-content-center">
+	
+				<!--Grid column-->
+				<div class="col-md-6">
+	
+					<!-- Default form register -->
+					<form class="text-center" method ="POST">
+				{%csrf_token%}
+						<p class="h4 mb-4">Sign up</p>
+	
+					{{p_reg_form|crispy}}
+					{{form|crispy}}
+	
+						<!-- Newsletter -->
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+							<label class="custom-control-label" for="defaultRegisterFormNewsletter">Accepta termenii si conditiile</label>
+						</div>
+	
+						<!-- Sign up button -->
+						<button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+	
+					
+					</form>
+					<!-- Default form register -->
+	
+				</div>
+				<!--Grid column-->
+	
+			</div>
+			<!--Grid row-->
+	
+	
+		</section>
+		<!--Section: Content-->
+	
+	
+	</div>
+	
+{%endblock%}

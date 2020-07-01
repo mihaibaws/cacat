@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{%static 'CSS\profile.css'%}">
+<title>Profile</title>
+<style>
+  table.dataTable thead .sorting:after,
+  table.dataTable thead .sorting:before,
+  table.dataTable thead .sorting_asc:after,
+  table.dataTable thead .sorting_asc:before,
+  table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_asc_disabled:before,
+  table.dataTable thead .sorting_desc:after,
+  table.dataTable thead .sorting_desc:before,
+  table.dataTable thead .sorting_desc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
+  }
+</style>
+<script>
+  $(document).ready(function () {
+    $('#dtVerticalScrollExample').DataTable({
+      "scrollY": "200px",
+      "scrollCollapse": true,
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
+<div>
+
+  <div class="user-info">
+    <div class="profile-border-img">
+    <img src="{%static 'CSS\JPGS\border.png'%}" class="profile-border">
+  	<img src="{{my_user_profile.profile_img.url}}" class="profile-img">
+    </div>
+
+  	 <p class = "nickname">{{my_user_profile.nickname}}</p>
+  	 <p class="division">{{my_user_profile.division}}</p>
+	   <img src="{{my_user_profile.division_img.url}}" class="division-img">
+  </div>
+
+
+
+    <table id="dtVerticalScrollExample" class="table table-bordered " cellspacing="0">
+      <thead>
+        <tr>
+          <th class="th-sm">Date ordered
+          </th>
+          <th class="th-sm">Refference code
+          </th>
+          <th class="th-sm">Product name
+          <th class="th-sm">Price
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in my_orders %}
+        <tr>
+          <td>{{ order.ordered_date }}</td>
+          <td>{{ order.ref_code }}</td>
+          <td>
+            {% for item in order.items.all %}
+            {{ item.product.title }} ({{item.size}}) x {{item.quantity}}
+            {% endfor %}
+          </td>
+          <td>${{ order.get_cart_total }}</td>
+        
+        </tr>
+        {% empty %}
+        <tr>
+          <td> You have no orders.</td>
+        </tr>
+        {% endfor %}
+
+        
+      </tbody>
+    </table>
+
+</div>
+{%endblock%}
